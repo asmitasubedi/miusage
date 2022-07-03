@@ -1,0 +1,19 @@
+{
+    "name": "asmita/miusage",
+    "description": "A miusage API based plugin.",
+    "type": "wordpress-plugin",
+    "license": "GPL v3 or later",
+    "authors": [
+        {
+            "name": "asmitasubedi",
+            "email": "asmitasubedi0346@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Miusage\\": "src/"
+        }
+    },
+    "require": {},
+    "require-dev": {}
+}
