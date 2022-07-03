@@ -1,6 +1,6 @@
 <?php
 /**
- * Miusage Cache Helpers.
+ * Miusage Helpers.
  *
  * @since 1.0.0
  * @package Miusage\Helpers
@@ -11,11 +11,11 @@ namespace Miusage\Helpers;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Miusage Caches implementation.
+ * Miusage Helpers class.
  *
  * @since 1.0.0
  */
-class Cache {
+class Helpers {
 
 	/**
 	 * Build cache key for a given URL.
@@ -26,7 +26,8 @@ class Cache {
 	 * @return string The cache key.
 	 */
 	public static function build_cache_key( $url ) {
-		return 'miusage_url_response_' . md5( $url );
+		// return 'miusage_url_response_' . md5( $url );
+		return 'miusage_url_response';
 	}
 
 	/**

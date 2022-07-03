@@ -9,7 +9,7 @@
 
 namespace Miusage\RestApi\Controllers;
 
-use Miusage\Helpers\Cache;
+use Miusage\Helpers\Helpers;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -115,10 +115,10 @@ class ChallengeController extends \WP_REST_Controller {
 			return new \WP_Error( 'rest_invalid_url', __( 'Invalid URL' ), array( 'status' => 404 ) );
 		}
 
-		$cache_key = Cache::build_cache_key( $url );
+		$cache_key = Helpers::build_cache_key( $url );
 
 		// Attempt to retrieve cached response.
-		$cached_response = Cache::get_cache( $cache_key );
+		$cached_response = Helpers::get_cache( $cache_key );
 
 		if ( ! empty( $cached_response ) ) {
 			$remote_url_response = $cached_response;
@@ -131,7 +131,7 @@ class ChallengeController extends \WP_REST_Controller {
 			}
 
 			// Cache the valid response.
-			Cache::set_cache( $cache_key, $remote_url_response );
+			Helpers::set_cache( $cache_key, $remote_url_response );
 		}
 
 		$response = rest_ensure_response( $remote_url_response );

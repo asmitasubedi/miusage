@@ -8,7 +8,7 @@
 
 namespace Miusage\Cli;
 
-use Miusage\Helpers\Cache;
+use Miusage\Helpers\Helpers;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -30,7 +30,8 @@ class Challenges extends \WP_CLI_Command {
 	 */
 	public function refresh( $args, $assoc_args ) {
 		$url     = 'https://api.miusage.com/v1/challenges';
-		$refresh = Cache::reset_cache( $url );
+		$url     = untrailingslashit( $url );
+		$refresh = Helpers::reset_cache( $url );
 		if ( $refresh ) {
 			\WP_CLI::success( 'Challenges refreshed.' );
 		} else {

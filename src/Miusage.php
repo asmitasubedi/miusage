@@ -9,6 +9,8 @@ namespace Miusage;
 
 use Miusage\RestApi\RestApi;
 use Miusage\Cli\Cli;
+use Miusage\Shortcodes\Shortcodes;
+use Miusage\Blocks\Blocks;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -118,6 +120,8 @@ final class Miusage {
 		if ( $this->meets_requirements() ) {
 			RestApi::init();
 			Cli::init();
+			Shortcodes::register_shortcodes();
+			new Blocks();
 		}
 	}
 

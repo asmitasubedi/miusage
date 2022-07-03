@@ -1,0 +1,15 @@
+{
+    "api_version": 2,
+    "name": "miusage/challenges",
+    "title": "Miusage Challenges",
+    "category": "miusage",
+    "attributes": {
+        "block_id": {
+            "type": "string"
+        },
+        "showTitle": {
+            "type": "string",
+            "default": "yes"
+        }
+    }
+}
