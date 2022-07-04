@@ -8,8 +8,28 @@
             "type": "string"
         },
         "showTitle": {
-            "type": "string",
-            "default": "yes"
+            "type": "boolean",
+            "default": true
+        },
+        "showId": {
+            "type": "boolean",
+            "default": true
+        },
+        "showFname": {
+            "type": "boolean",
+            "default": true
+        },
+        "showLname": {
+            "type": "boolean",
+            "default": true
+        },
+        "showEmail": {
+            "type": "boolean",
+            "default": true
+        },
+        "showDate": {
+            "type": "boolean",
+            "default": true
         }
     }
 }

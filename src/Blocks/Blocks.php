@@ -122,6 +122,14 @@ class Blocks {
 			$block_deps['version'],
 			true
 		);
+
+		wp_localize_script(
+			'miusage-blocks-js',
+			'miusage',
+			array(
+				'siteURL' => esc_url( home_url( '/' ) ),
+			)
+		);
 	}
 
 	/**
