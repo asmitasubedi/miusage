@@ -12,7 +12,7 @@ const blocks = [
 			__("Misuage Challenges", "miusage"),
 			__("Miusage", "miusage"),
 		],
-		Component: Challenges,
+		component: Challenges,
 	}
 ];
 
@@ -26,7 +26,7 @@ blocks.forEach((block) => {
 		example: {
 			attributes: {},
 		},
-		edit: block.Component,
+		edit: block.component,
 		save: (() => null),
 	});
 });

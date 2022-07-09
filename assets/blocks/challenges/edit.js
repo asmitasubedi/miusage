@@ -52,50 +52,44 @@ export default (props) => {
 			<BlockInspector
 				{...{ attributes, setAttributes, className, isSelected }}
 			/>
-			<div
-				id={`miusage-challenges-table-style-${clientId}`}
-				className={`miusage-challenges-table-wrapper ${className}`}
-			>
-				<Disabled>
-					<div className="miusage-challenge-data">
-						<table className="miusage-challenge-data-table">
-							{showTitle && title && <caption>{title}</caption>}
-							<thead>
-								<tr>
-									{headers.map((header) => {
-										let showData =
-											toggleColumns[
-												Object.keys(header)[0]
-											];
-										let label = Object.values(header)[0];
-										if (showData) {
-											return <th>{label}</th>;
-										}
-									})}
+
+			<Disabled>
+				<div className="miusage-challenge-data">
+					<table className="miusage-challenge-data-table">
+						{showTitle && title && <caption>{title}</caption>}
+						<thead>
+							<tr>
+								{headers.map((header) => {
+									let showData =
+										toggleColumns[Object.keys(header)[0]];
+									let label = Object.values(header)[0];
+									if (showData) {
+										return <th>{label}</th>;
+									}
+								})}
+							</tr>
+						</thead>
+						<tbody>
+							{rows.map((row, index) => (
+								<tr key={index}>
+									{showId && <td>{row.id}</td>}
+									{showFname && <td>{row.fname}</td>}
+									{showLname && <td>{row.lname}</td>}
+									{showEmail && <td>{row.email}</td>}
+									{showDate && (
+										<td>
+											{dateI18n(
+												dateFormat,
+												row.date * 1000
+											)}
+										</td>
+									)}
 								</tr>
-							</thead>
-							<tbody>
-								{rows.map((row, index) => (
-									<tr key={index}>
-										{showId && <td>{row.id}</td>}
-										{showFname && <td>{row.fname}</td>}
-										{showLname && <td>{row.lname}</td>}
-										{showEmail && <td>{row.email}</td>}
-										{showDate && (
-											<td>
-												{dateI18n(
-													dateFormat,
-													row.date * 1000
-												)}
-											</td>
-										)}
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-				</Disabled>
-			</div>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</Disabled>
 
 			{rows.length === 0 && <Spinner />}
 		</div>

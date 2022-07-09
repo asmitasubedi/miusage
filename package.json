@@ -10,6 +10,7 @@
     "i18n": "grunt i18n"
   },
   "devDependencies": {
+    "@wordpress/i18n": "^4.12.0",
     "grunt": "^1.5.3",
     "grunt-checktextdomain": "^1.0.1",
     "grunt-exec": "^3.0.0",

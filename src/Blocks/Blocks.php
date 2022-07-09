@@ -45,6 +45,7 @@ class Blocks {
 		add_filter( 'block_categories_all', array( $this, 'block_categories' ), 10, 2 );
 		add_action( 'init', array( $this, 'register_blocks' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_blocks' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'set_script_translations' ) );
 	}
 
 	/**
@@ -76,8 +77,11 @@ class Blocks {
 			register_block_type(
 				__DIR__ . "/{$block}",
 				array(
-					'render_callback' => array( $this, 'render_block' ),
+					'render_callback' => function( $attributes, $content ) use ( $block ) {
+						return $this->render_block( $attributes, $content, $block );
+					},
 					'editor_script'   => 'miusage-blocks-js',
+					'editor_style'    => 'miusage-blocks-css',
 				)
 			);
 		}
@@ -130,6 +134,17 @@ class Blocks {
 				'siteURL' => esc_url( home_url( '/' ) ),
 			)
 		);
+
+		wp_enqueue_style( 'miusage-blocks-css', plugin_dir_url( MIUSAGE_PLUGIN_FILE ) . 'assets/blocks/challenges/style.css', array(), MIUSAGE_VERSION );
+	}
+
+	/**
+	 * Set script translations.
+	 *
+	 * @since 1.0.0
+	 */
+	public function set_script_translations() {
+		wp_set_script_translations( 'miusage-blocks-js', 'miusage', plugin_dir_path( MIUSAGE_PLUGIN_FILE ) . 'languages' );
 	}
 
 	/**
@@ -138,9 +153,17 @@ class Blocks {
 	 * @since 1.0.0
 	 *
 	 * @param array $attributes Block attributes.
+	 * @param string $content Block content.
+	 * @param string $block Block name.
+	 * 
 	 * @return string Block HTML.
 	 */
-	public function render_block( $attributes ) {
-		return 'Hii';
+	public function render_block( $attributes, $content, $block) {
+
+		ob_start();
+		include __DIR__ . "/{$block}/block.php";
+		$block_render = ob_get_clean();
+
+		return $block_render;
 	}
 }

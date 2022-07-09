@@ -60,7 +60,7 @@ class ScriptStyle {
 	 */
 	public static function enqueue_scripts() {
 
-		if ( Helpers::has_miusage_shortcode() ) {
+		if ( Helpers::has_miusage_shortcode() || Helpers::has_miusage_block() ) {
 			wp_enqueue_style( 'miusage-public', plugin_dir_url( MIUSAGE_PLUGIN_FILE ) . 'assets/css/challenges-table.css', array(), MIUSAGE_VERSION );
 		}
 	}

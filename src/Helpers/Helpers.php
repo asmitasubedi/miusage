@@ -142,4 +142,16 @@ class Helpers {
 		return has_shortcode( get_the_content(), 'miusage_challenges' );
 	}
 
+	/**
+	 * Check if the content has miusage block
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return boolean
+	 */
+	public static function has_miusage_block() {
+
+		return has_block( 'miusage/challenges' );
+	}
+
 }
