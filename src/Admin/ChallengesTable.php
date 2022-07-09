@@ -43,11 +43,11 @@ class ChallengesTable extends \WP_List_Table {
 	public function get_columns() {
 
 		return array(
-			'id'    => __( 'ID', 'woocommerce' ),
-			'fname' => __( 'First Name', 'woocommerce' ),
-			'lname' => __( 'Last Name', 'woocommerce' ),
-			'email' => __( 'Email', 'woocommerce' ),
-			'date'  => __( 'Date', 'woocommerce' ),
+			'id'    => __( 'ID', 'miusage' ),
+			'fname' => __( 'First Name', 'miusage' ),
+			'lname' => __( 'Last Name', 'miusage' ),
+			'email' => __( 'Email', 'miusage' ),
+			'date'  => __( 'Date', 'miusage' ),
 		);
 	}
 
@@ -199,7 +199,7 @@ class ChallengesTable extends \WP_List_Table {
 	 */
 	public function no_items() {
 
-		esc_html_e( 'No challenges found.', 'woocommerce' );
+		esc_html_e( 'No challenges found.', 'miusage' );
 	}
 
 	/**

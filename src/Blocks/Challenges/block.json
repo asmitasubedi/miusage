@@ -3,6 +3,7 @@
     "name": "miusage/challenges",
     "title": "Miusage Challenges",
     "category": "miusage",
+    "textdomain": "miusage",
     "attributes": {
         "block_id": {
             "type": "string"

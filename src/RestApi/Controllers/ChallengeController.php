@@ -112,7 +112,7 @@ class ChallengeController extends \WP_REST_Controller {
 		$url = untrailingslashit( $url );
 
 		if ( empty( $url ) ) {
-			return new \WP_Error( 'rest_invalid_url', __( 'Invalid URL' ), array( 'status' => 404 ) );
+			return new \WP_Error( 'rest_invalid_url', __( 'Invalid URL', 'miusage' ), array( 'status' => 404 ) );
 		}
 
 		$cache_key = Helpers::build_cache_key( $url );
@@ -169,7 +169,7 @@ class ChallengeController extends \WP_REST_Controller {
 		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
 			return new \WP_Error(
 				'no_response',
-				__( 'URL not found. Response returned a non-200 status code for this URL.' ),
+				__( 'URL not found. Response returned a non-200 status code for this URL.', 'miusage' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -180,7 +180,7 @@ class ChallengeController extends \WP_REST_Controller {
 		if ( empty( $remote_body ) ) {
 			return new \WP_Error(
 				'no_content',
-				__( 'Unable to retrieve body from response at this URL.' ),
+				__( 'Unable to retrieve body from response at this URL.', 'miusage' ),
 				array( 'status' => 404 )
 			);
 		}

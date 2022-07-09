@@ -6,10 +6,15 @@ export default (props) => {
 	const { attributes, setAttributes } =
 		props;
 
-	const { showId, showFname, showLname, showEmail, showDate } =
+	const { showTitle, showId, showFname, showLname, showEmail, showDate } =
 		attributes;
 
 	const toggleFields = [
+		{
+			name: "showTitle",
+			label: __("Show Title", "miusage"),
+			value: showTitle,
+		},
 		{
 			name: "showId",
 			label: __("Show ID", "miusage"),

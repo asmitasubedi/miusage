@@ -112,7 +112,7 @@ class Helpers {
 	public static function datetime_format() {
 
 		return sprintf( /* translators: %1$s - date, \a\t - specially escaped "at", %2$s - time. */
-			esc_html__( '%1$s \a\t %2$s', 'wp-mail-smtp' ),
+			esc_html__( '%1$s \a\t %2$s', 'miusage' ),
 			get_option( 'date_format' ),
 			get_option( 'time_format' )
 		);

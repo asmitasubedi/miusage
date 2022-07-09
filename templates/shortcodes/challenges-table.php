@@ -6,6 +6,8 @@
  * @since 1.0.0
  */
 
+use Miusage\Helpers\Helpers;
+
 defined( 'ABSPATH' ) || exit;
 
 $caption = isset( $data['title'] ) ? $data['title'] : false;
@@ -34,7 +36,13 @@ $rows    = isset( $data['data']['rows'] ) ? $data['data']['rows'] : false;
 			<tbody>
 				<?php foreach ( $rows as $row ) { ?>
 					<tr>
-						<?php foreach ( $row as $key => $cell ) { ?>
+						<?php
+						foreach ( $row as $key => $cell ) {
+							$cell = 'date' !== $key ? $cell : date_i18n(
+								Helpers::datetime_format(),
+								$cell
+							);
+							?>
 							<td data-label="<?php echo esc_html( $key ); ?>"><?php echo esc_html( $cell ); ?></td>
 						<?php } ?>
 					</tr>

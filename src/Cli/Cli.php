@@ -49,7 +49,7 @@ class Cli {
 
 		if ( ! self::is_wp_cli() ) {
 			/* translators: %s php class name */
-			throw new \Exception( sprintf( __( 'The %s class can only be run within WP CLI.', 'action-scheduler' ), __CLASS__ ) );
+			throw new \Exception( sprintf( __( 'The %s class can only be run within WP CLI.', 'miusage' ), __CLASS__ ) );
 		}
 
 		/**

@@ -1,0 +1,122 @@
+# Copyright (C) 2022 Asmita Subedi
+# This file is distributed under the same license as the Miusage plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Miusage 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/miusage\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-07-09T15:29:42+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+
+#. Plugin Name of the plugin
+#: src/Admin/AdminMenu.php:51
+#: src/Blocks/Blocks.php:63
+#: assets/blocks/blocks.js:13
+msgid "Miusage"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://awesomemotive.com/"
+msgstr ""
+
+#. Description of the plugin
+msgid "A miusage API based plugin."
+msgstr ""
+
+#. Author of the plugin
+msgid "Asmita Subedi"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://asmitasubedi.com.np/"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:73
+msgid "Miusage Challenges"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:76
+msgid "Search Challenges"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:87
+msgid "Refresh Challenges"
+msgstr ""
+
+#: src/Admin/ChallengesTable.php:46
+msgid "ID"
+msgstr ""
+
+#: src/Admin/ChallengesTable.php:47
+msgid "First Name"
+msgstr ""
+
+#: src/Admin/ChallengesTable.php:48
+msgid "Last Name"
+msgstr ""
+
+#: src/Admin/ChallengesTable.php:49
+msgid "Email"
+msgstr ""
+
+#: src/Admin/ChallengesTable.php:50
+msgid "Date"
+msgstr ""
+
+#: src/Admin/ChallengesTable.php:202
+#: src/Shortcodes/ChallengesShortcode.php:57
+msgid "No challenges found."
+msgstr ""
+
+#: src/AjaxHandlers.php:54
+msgid "Invalid nonce."
+msgstr ""
+
+#: src/AjaxHandlers.php:63
+msgid "You must be logged in to refresh challenges."
+msgstr ""
+
+#: src/AjaxHandlers.php:72
+msgid "You do not have permission to refresh challenges."
+msgstr ""
+
+#: src/AjaxHandlers.php:85
+msgid "Challenges refreshed successfully."
+msgstr ""
+
+#: src/AjaxHandlers.php:93
+msgid "Challenges could not be refreshed."
+msgstr ""
+
+#. translators: %s php class name
+#: src/Cli/Cli.php:52
+msgid "The %s class can only be run within WP CLI."
+msgstr ""
+
+#. translators: %1$s - date, \a\t - specially escaped "at", %2$s - time.
+#: src/Helpers/Helpers.php:115
+msgid "%1$s \\a\\t %2$s"
+msgstr ""
+
+#: src/RestApi/Controllers/ChallengeController.php:115
+msgid "Invalid URL"
+msgstr ""
+
+#: src/RestApi/Controllers/ChallengeController.php:172
+msgid "URL not found. Response returned a non-200 status code for this URL."
+msgstr ""
+
+#: src/RestApi/Controllers/ChallengeController.php:183
+msgid "Unable to retrieve body from response at this URL."
+msgstr ""
+
+#: assets/blocks/blocks.js:7
+#: assets/blocks/blocks.js:8
+#: assets/blocks/blocks.js:12
+msgid "Misuage Challenges"
+msgstr ""
