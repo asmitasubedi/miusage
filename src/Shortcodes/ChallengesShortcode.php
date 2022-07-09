@@ -28,11 +28,12 @@ class ChallengesShortcode {
 
 		$attributes = shortcode_atts(
 			array(
-				'id'    => true,
-				'fname' => true,
-				'lname' => true,
-				'email' => true,
-				'date'  => true,
+				'show_title' => true,
+				'show_id'    => true,
+				'show_fname' => true,
+				'show_lname' => true,
+				'show_email' => true,
+				'show_date'  => true,
 			),
 			$attributes,
 			'miusage_challenges'
@@ -56,6 +57,17 @@ class ChallengesShortcode {
 		if ( empty( $data ) ) {
 			return __( 'No challenges found.', 'miusage' );
 		}
+
+		$caption = isset( $data['title'] ) ? $data['title'] : false;
+		$headers = isset( $data['data']['headers'] ) ? $data['data']['headers'] : false;
+		$rows    = isset( $data['data']['rows'] ) ? $data['data']['rows'] : false;
+
+		$show_title = filter_var( $attributes['show_title'], FILTER_VALIDATE_BOOLEAN );
+		$show_id    = filter_var( $attributes['show_id'], FILTER_VALIDATE_BOOLEAN );
+		$show_fname = filter_var( $attributes['show_fname'], FILTER_VALIDATE_BOOLEAN );
+		$show_lname = filter_var( $attributes['show_lname'], FILTER_VALIDATE_BOOLEAN );
+		$show_email = filter_var( $attributes['show_email'], FILTER_VALIDATE_BOOLEAN );
+		$show_date  = filter_var( $attributes['show_date'], FILTER_VALIDATE_BOOLEAN );
 
 		\ob_start();
 

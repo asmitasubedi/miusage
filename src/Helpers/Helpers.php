@@ -119,6 +119,20 @@ class Helpers {
 	}
 
 	/**
+	 * Format DateTime object as per WP options.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param $date
+	 *
+	 * @return string
+	 */
+	public static function format_datetime( $date ) {
+
+		return date_i18n( self::datetime_format(), strtotime( $date ) );
+	}
+
+	/**
 	 * Check if the admin page is miusage page
 	 *
 	 * @since 1.0.0

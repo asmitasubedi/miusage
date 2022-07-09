@@ -21,7 +21,7 @@
 
 .miusage-challenge-data table th,
 .miusage-challenge-data table td {
-	padding: 0.625em;
+	padding: 0.625em 0em;
 	text-align: center;
     border: 1px solid #ddd;
 }

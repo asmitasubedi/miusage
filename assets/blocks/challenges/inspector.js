@@ -13,7 +13,7 @@ export default (props) => {
 		{
 			name: "showTitle",
 			label: __("Show Title", "miusage"),
-			value: showTitle,
+			checked: showTitle,
 		},
 		{
 			name: "showId",

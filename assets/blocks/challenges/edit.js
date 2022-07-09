@@ -72,12 +72,12 @@ export default (props) => {
 						<tbody>
 							{rows.map((row, index) => (
 								<tr key={index}>
-									{showId && <td>{row.id}</td>}
-									{showFname && <td>{row.fname}</td>}
-									{showLname && <td>{row.lname}</td>}
-									{showEmail && <td>{row.email}</td>}
+									{showId && <td data-label="Id">{row.id}</td>}
+									{showFname && <td data-label="First Name">{row.fname}</td>}
+									{showLname && <td data-label="Last Name">{row.lname}</td>}
+									{showEmail && <td data-label="Email">{row.email}</td>}
 									{showDate && (
-										<td>
+										<td data-label="Date">
 											{dateI18n(
 												dateFormat,
 												row.date * 1000
