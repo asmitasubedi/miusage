@@ -1,0 +1,80 @@
+.miusage-challenge-data table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.miusage-challenge-data table caption {
+	font-size: 1.5em;
+	margin: 0.5em 0 0.75em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.miusage-challenge-data table tr {
+	border: 1px solid #ddd;
+	padding: 0.35em;
+}
+
+.miusage-challenge-data table th,
+.miusage-challenge-data table td {
+	padding: 0.625em;
+	text-align: center;
+    border: 1px solid #ddd;
+}
+
+.miusage-challenge-data table th {
+	font-size: 0.85em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+    font-weight: 500;
+    background-color: #f8f8f8;
+}
+
+@media screen and (max-width: 600px) {
+	.miusage-challenge-data table {
+		border: 0;
+	}
+
+	.miusage-challenge-data table caption {
+		font-size: 1.3em;
+	}
+
+	.miusage-challenge-data table thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+
+	.miusage-challenge-data table tr {
+		border-bottom: 3px solid #ddd;
+		display: block;
+		margin-bottom: 0.625em;
+	}
+
+	.miusage-challenge-data table td {
+		border-bottom: 1px solid #ddd;
+		display: block;
+		font-size: 0.8em;
+		text-align: right;
+	}
+
+	.miusage-challenge-data table td::before {
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	.miusage-challenge-data table td:last-child {
+		border-bottom: 0;
+	}
+}

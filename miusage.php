@@ -39,5 +39,4 @@ function miusage() {
 	return Miusage::instance();
 }
 
-// Global for backwards compatibility.
-$GLOBALS['WP_Miusage'] = miusage();
+miusage();

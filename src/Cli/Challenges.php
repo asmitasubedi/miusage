@@ -29,9 +29,11 @@ class Challenges extends \WP_CLI_Command {
 	 * @when after_wp_load
 	 */
 	public function refresh( $args, $assoc_args ) {
-		$url     = 'https://api.miusage.com/v1/challenges';
-		$url     = untrailingslashit( $url );
+		$url = 'https://miusage.com/v1/challenge/1/';
+		$url = untrailingslashit( $url );
+
 		$refresh = Helpers::reset_cache( $url );
+
 		if ( $refresh ) {
 			\WP_CLI::success( 'Challenges refreshed.' );
 		} else {

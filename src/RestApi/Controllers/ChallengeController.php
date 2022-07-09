@@ -120,9 +120,8 @@ class ChallengeController extends \WP_REST_Controller {
 		// Attempt to retrieve cached response.
 		$cached_response = Helpers::get_cache( $cache_key );
 
-		if ( ! empty( $cached_response ) ) {
-			$remote_url_response = $cached_response;
-		} else {
+		if ( false === $cached_response ) {
+
 			$remote_url_response = $this->fetch_items( $url );
 
 			// Exit if we don't have a valid body or it's empty.
@@ -132,6 +131,10 @@ class ChallengeController extends \WP_REST_Controller {
 
 			// Cache the valid response.
 			Helpers::set_cache( $cache_key, $remote_url_response );
+
+		} else {
+
+			$remote_url_response = $cached_response;
 		}
 
 		$response = rest_ensure_response( $remote_url_response );
@@ -158,6 +161,10 @@ class ChallengeController extends \WP_REST_Controller {
 		$args = apply_filters( 'miusage_request_args', $args, $url );
 
 		$response = wp_safe_remote_get( $url, $args );
+
+		if ( is_wp_error( $response ) ) {
+			return $response;
+		}
 
 		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
 			return new \WP_Error(

@@ -6,7 +6,7 @@ import Challenges from "./challenges/edit";
 	{
 		title: __("Misuage Challenges", "miusage"),
 		description: __("Misuage Challenges", "miusage"),
-		icon: "universal-access-alt",
+		icon: "dashicons-rest-api",
 		namespace: "challenges",
 		keywords: [
 			__("Misuage Challenges", "miusage"),

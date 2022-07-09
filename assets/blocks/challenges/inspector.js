@@ -3,18 +3,13 @@ import { PanelBody, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
 export default (props) => {
-	const { attributes, setAttributes, className, isSelected, clientId } =
+	const { attributes, setAttributes } =
 		props;
 
-	const { showTitle, showId, showFname, showLname, showEmail, showDate } =
+	const { showId, showFname, showLname, showEmail, showDate } =
 		attributes;
 
 	const toggleFields = [
-		{
-			name: "showTitle",
-			label: __("Show Title", "miusage"),
-			checked: showTitle,
-		},
 		{
 			name: "showId",
 			label: __("Show ID", "miusage"),

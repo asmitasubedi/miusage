@@ -11,6 +11,9 @@ use Miusage\RestApi\RestApi;
 use Miusage\Cli\Cli;
 use Miusage\Shortcodes\Shortcodes;
 use Miusage\Blocks\Blocks;
+use Miusage\Admin\AdminMenu;
+use Miusage\ScriptStyle;
+use Miusage\AjaxHandlers;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -19,7 +22,8 @@ defined( 'ABSPATH' ) || exit;
  *
  * @class Miusage
  */
-final class Miusage {
+class Miusage {
+
 	/**
 	 * Miusage version.
 	 *
@@ -33,7 +37,7 @@ final class Miusage {
 	 * @var Miusage
 	 * @since 1.0.0
 	 */
-	protected static $_instance = null;
+	protected static $instance = null;
 
 	/**
 	 * Main Miusage Instance.
@@ -45,10 +49,11 @@ final class Miusage {
 	 * @return Miusage - Main instance.
 	 */
 	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
 		}
-		return self::$_instance;
+
+		return self::$instance;
 	}
 
 	/**
@@ -64,13 +69,6 @@ final class Miusage {
 		if ( ! $this->meets_requirements() ) {
 			return;
 		}
-
-		$this->admin = new MiusageAdmin();
-
-		if ( $this->is_request( 'frontend' ) ) {
-			// Public instances.
-			$this->public = new MiusagePublic();
-		}
 	}
 
 	/**
@@ -84,8 +82,7 @@ final class Miusage {
 		$this->define( 'MIUSAGE_ABSPATH', dirname( MIUSAGE_PLUGIN_FILE ) . '/' );
 		$this->define( 'MIUSAGE_PLUGIN_URL', $this->plugin_url() );
 		$this->define( 'MIUSAGE_PLUGIN_BASENAME', plugin_basename( MIUSAGE_PLUGIN_FILE ) );
-		$this->define( 'MIUSAGE_PLUGIN_PATH', plugin_dir_path( MIUSAGE_PLUGIN_FILE ) );
-		$this->define( 'MIUSAGE_TEMPLATE_DEBUG_MODE', false );
+		$this->define( 'MIUSAGE_PLUGIN_PATH', $this->plugin_path() );
 	}
 
 	/**
@@ -122,6 +119,9 @@ final class Miusage {
 			Cli::init();
 			Shortcodes::register_shortcodes();
 			new Blocks();
+			AdminMenu::init();
+			ScriptStyle::init();
+			AjaxHandlers::init();
 		}
 	}
 
