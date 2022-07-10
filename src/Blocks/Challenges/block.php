@@ -22,4 +22,6 @@ $show_lname = isset( $attributes['showLname'] ) && $attributes['showLname'] ? tr
 $show_email = isset( $attributes['showEmail'] ) && $attributes['showEmail'] ? true : false;
 $show_date  = isset( $attributes['showDate'] ) && $attributes['showDate'] ? true : false;
 
+echo '<div class="miusage-challenges-block">';
 echo do_shortcode( '[miusage_challenges show_title="' . $show_title . '" show_id="' . $show_id . '" show_fname="' . $show_fname . '" show_lname="' . $show_lname . '" show_email="' . $show_email . '" show_date="' . $show_date . '"]' );
+echo '</div>';

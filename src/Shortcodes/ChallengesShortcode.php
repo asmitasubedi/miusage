@@ -73,7 +73,7 @@ class ChallengesShortcode {
 
 		\ob_start();
 
-		include_once MIUSAGE_ABSPATH . 'templates/shortcodes/challenges-table.php';
+		include MIUSAGE_ABSPATH . 'templates/shortcodes/challenges-table.php';
 
 		return \ob_get_clean();
 
