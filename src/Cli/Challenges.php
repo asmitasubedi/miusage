@@ -29,6 +29,7 @@ class Challenges extends \WP_CLI_Command {
 	 * @when after_wp_load
 	 */
 	public function refresh( $args, $assoc_args ) {
+		
 		$url = 'https://miusage.com/v1/challenge/1/';
 		$url = untrailingslashit( $url );
 

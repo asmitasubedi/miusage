@@ -57,12 +57,12 @@ export default (props) => {
 						{showTitle && title && <caption>{title}</caption>}
 						<thead>
 							<tr>
-								{headers.map((header) => {
+								{headers.map((header, index) => {
 									let showData =
 										toggleColumns[Object.keys(header)];
 									let label = Object.values(header);
 									if (showData) {
-										return <th>{label}</th>;
+										return <th key={index}>{label}</th>;
 									}
 								})}
 							</tr>
@@ -71,25 +71,25 @@ export default (props) => {
 							{rows.map((row, index) => (
 								<tr key={index}>
 									{showId && (
-										<td data-label={__("Id")}>{row.id}</td>
+										<td data-label={__("Id", "miusage")}>{row.id}</td>
 									)}
 									{showFname && (
-										<td data-label={__("First Name")}>
+										<td data-label={__("First Name", "miusage")}>
 											{row.fname}
 										</td>
 									)}
 									{showLname && (
-										<td data-label={__("Last Name")}>
+										<td data-label={__("Last Name", "miusage")}>
 											{row.lname}
 										</td>
 									)}
 									{showEmail && (
-										<td data-label={__("Email")}>
+										<td data-label={__("Email", "miusage")}>
 											{row.email}
 										</td>
 									)}
 									{showDate && (
-										<td data-label={__("Date")}>
+										<td data-label={__("Date", "miusage")}>
 											{dateI18n(
 												dateFormat,
 												row.date * 1000

@@ -72,16 +72,12 @@ class AdminMenu {
 		<div class="wrap">
 			<h1><?php esc_html_e( 'Miusage Challenges', 'miusage' ); ?></h1>
 			<?php
-				$table->search_box(
-					esc_html__( 'Search Challenges', 'miusage' ),
-					'miusage-challenges'
-				);
 				$table->display();
 			?>
 		</div>
-		
+
 		<div class="miusage-refresh-challenges">
-			<form name="miusage-refresh-form" method="post" action="<?php echo esc_url( admin_url('admin-ajax.php') ); ?>">
+			<form name="miusage-refresh-form" method="post" action="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>">
 				<input type="hidden" name="action" value="miusage_refresh_challenges" />
 				<?php wp_nonce_field( 'miusage_refresh_challenges', 'miusage_refresh_challenges_nonce' ); ?>
 				<input type="submit" class="button button-primary" value="<?php esc_html_e( 'Refresh Challenges', 'miusage' ); ?>" />

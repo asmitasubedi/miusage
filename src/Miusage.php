@@ -118,7 +118,7 @@ class Miusage {
 			RestApi::init();
 			Cli::init();
 			Shortcodes::register_shortcodes();
-			new Blocks();
+			Blocks::instance()->init();
 			AdminMenu::init();
 			ScriptStyle::init();
 			AjaxHandlers::init();
@@ -180,25 +180,6 @@ class Miusage {
 	 */
 	public function template_path() {
 		return apply_filters( 'miusage_template_path', '/miusage/' );
-	}
-
-	/**
-	 * What type of request is this?
-	 *
-	 * @param  string $type admin, ajax, cron or frontend.
-	 * @return bool
-	 */
-	private function is_request( $type ) {
-		switch ( $type ) {
-			case 'admin':
-				return is_admin();
-			case 'ajax':
-				return defined( 'DOING_AJAX' );
-			case 'cron':
-				return defined( 'DOING_CRON' );
-			case 'frontend':
-				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
-		}
 	}
 
 	/**

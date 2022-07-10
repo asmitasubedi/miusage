@@ -8,6 +8,8 @@
 
 namespace Miusage\Blocks;
 
+use Miusage\SingletonTrait;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -17,12 +19,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class Blocks {
 
-	/**
-	 * Constructor.
-	 */
-	public function __construct() {
-		$this->init();
-	}
+	use SingletonTrait;
 
 	/**
 	 * Initialization
@@ -32,7 +29,7 @@ class Blocks {
 	 *
 	 * @return void
 	 */
-	private function init() {
+	public function init() {
 		$this->init_hooks();
 	}
 
@@ -41,7 +38,7 @@ class Blocks {
 	 *
 	 * @since 1.0.0
 	 */
-	private function init_hooks() {
+	public function init_hooks() {
 		add_filter( 'block_categories_all', array( $this, 'block_categories' ), 10, 2 );
 		add_action( 'init', array( $this, 'register_blocks' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_blocks' ) );
@@ -73,7 +70,7 @@ class Blocks {
 	 * @since 1.0.0
 	 */
 	public function register_blocks() {
-		foreach ( self::get_blocks() as $block => $function ) {
+		foreach ( $this->get_blocks() as $block => $function ) {
 			register_block_type(
 				__DIR__ . "/{$block}",
 				array(
@@ -94,7 +91,7 @@ class Blocks {
 	 *
 	 * @return array
 	 */
-	protected static function get_blocks() {
+	public function get_blocks() {
 		$namespace = '\\Miusage\\Blocks';
 
 		/**
@@ -152,13 +149,13 @@ class Blocks {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $attributes Block attributes.
+	 * @param array  $attributes Block attributes.
 	 * @param string $content Block content.
 	 * @param string $block Block name.
-	 * 
+	 *
 	 * @return string Block HTML.
 	 */
-	public function render_block( $attributes, $content, $block) {
+	public function render_block( $attributes, $content, $block ) {
 
 		ob_start();
 		include __DIR__ . "/{$block}/block.php";

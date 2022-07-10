@@ -129,7 +129,7 @@ class Helpers {
 	 */
 	public static function format_datetime( $date ) {
 
-		return date_i18n( self::datetime_format(), strtotime( $date ) );
+		return date_i18n( self::datetime_format(), $date );
 	}
 
 	/**
@@ -141,7 +141,7 @@ class Helpers {
 	 */
 	public static function is_miusage_page() {
 
-		return ( isset( $_GET['page'] ) && 'miusage' === $_GET['page'] );
+		return ( isset( $_GET['page'] ) && 'miusage' === $_GET['page'] ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 
 	/**

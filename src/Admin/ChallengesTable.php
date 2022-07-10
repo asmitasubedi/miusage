@@ -139,62 +139,6 @@ class ChallengesTable extends \WP_List_Table {
 	}
 
 	/**
-	 * Search box.
-	 *
-	 * @param  string $text     Button text.
-	 * @param  string $input_id Input ID.
-	 */
-	public function search_box( $text, $input_id ) {
-
-		if ( empty( $_REQUEST['s'] ) && ! $this->has_items() ) { // phpcs:ignore WordPress.Security.NonceVerification
-			return;
-		}
-
-		$input_id = $input_id . '-search-input';
-		$search   = isset( $_REQUEST['s'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['s'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
-
-		?>
-
-		<p class="search-box">
-			<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $text ); ?>:</label>
-			<input type="search" id="<?php echo esc_attr( $input_id ); ?>" name="search" value="<?php echo esc_attr( $search ); ?>" />
-			<?php submit_button( $text, '', '', false, array( 'id' => 'search-submit' ) ); ?>
-		</p>
-
-		<?php
-	}
-
-	/**
-	 * Return search filter values or FALSE.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return bool|array
-	 */
-	public function get_filtered_search() {
-
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		if ( empty( $_REQUEST['s'] ) ) {
-			return false;
-		}
-
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		return sanitize_text_field( wp_unslash( $_REQUEST['s'] ) );
-	}
-
-	/**
-	 * Whether the table has items to display or not.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return bool
-	 */
-	public function has_items() {
-
-		return count( $this->items ) > 0;
-	}
-
-	/**
 	 * No items found text.
 	 */
 	public function no_items() {
