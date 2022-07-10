@@ -1,0 +1,36 @@
+{
+  "api_version": 2,
+  "name": "miusage/challenges",
+  "title": "Miusage Challenges",
+  "category": "miusage",
+  "textdomain": "miusage",
+  "attributes": {
+    "block_id": {
+      "type": "string"
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "showId": {
+      "type": "boolean",
+      "default": true
+    },
+    "showFname": {
+      "type": "boolean",
+      "default": true
+    },
+    "showLname": {
+      "type": "boolean",
+      "default": true
+    },
+    "showEmail": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDate": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
