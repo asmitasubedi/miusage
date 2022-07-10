@@ -24,7 +24,6 @@ export default (props) => {
 		email: showEmail,
 		date: showDate,
 	};
-	// console.log({ toggleColumns });
 
 	useEffect(() => {
 		const fetchChallenges = async () => {
@@ -34,7 +33,6 @@ export default (props) => {
 			const data = await response.json();
 			const rows = Object.values(data?.data?.rows);
 			let headers = Object.values(data?.data?.headers);
-			console.log(rows, headers);
 			headers = Object.keys(rows[0]).map((key, index) => ({
 				[key]: headers[index],
 			}));
@@ -61,8 +59,8 @@ export default (props) => {
 							<tr>
 								{headers.map((header) => {
 									let showData =
-										toggleColumns[Object.keys(header)[0]];
-									let label = Object.values(header)[0];
+										toggleColumns[Object.keys(header)];
+									let label = Object.values(header);
 									if (showData) {
 										return <th>{label}</th>;
 									}
@@ -72,12 +70,26 @@ export default (props) => {
 						<tbody>
 							{rows.map((row, index) => (
 								<tr key={index}>
-									{showId && <td data-label="Id">{row.id}</td>}
-									{showFname && <td data-label="First Name">{row.fname}</td>}
-									{showLname && <td data-label="Last Name">{row.lname}</td>}
-									{showEmail && <td data-label="Email">{row.email}</td>}
+									{showId && (
+										<td data-label={__("Id")}>{row.id}</td>
+									)}
+									{showFname && (
+										<td data-label={__("First Name")}>
+											{row.fname}
+										</td>
+									)}
+									{showLname && (
+										<td data-label={__("Last Name")}>
+											{row.lname}
+										</td>
+									)}
+									{showEmail && (
+										<td data-label={__("Email")}>
+											{row.email}
+										</td>
+									)}
 									{showDate && (
-										<td data-label="Date">
+										<td data-label={__("Date")}>
 											{dateI18n(
 												dateFormat,
 												row.date * 1000

@@ -62,12 +62,14 @@ class ChallengesShortcode {
 		$headers = isset( $data['data']['headers'] ) ? $data['data']['headers'] : false;
 		$rows    = isset( $data['data']['rows'] ) ? $data['data']['rows'] : false;
 
-		$show_title = filter_var( $attributes['show_title'], FILTER_VALIDATE_BOOLEAN );
-		$show_id    = filter_var( $attributes['show_id'], FILTER_VALIDATE_BOOLEAN );
-		$show_fname = filter_var( $attributes['show_fname'], FILTER_VALIDATE_BOOLEAN );
-		$show_lname = filter_var( $attributes['show_lname'], FILTER_VALIDATE_BOOLEAN );
-		$show_email = filter_var( $attributes['show_email'], FILTER_VALIDATE_BOOLEAN );
-		$show_date  = filter_var( $attributes['show_date'], FILTER_VALIDATE_BOOLEAN );
+		$toggles = array(
+			'show_title' => filter_var( $attributes['show_title'], FILTER_VALIDATE_BOOLEAN ),
+			'show_id'    => filter_var( $attributes['show_id'], FILTER_VALIDATE_BOOLEAN ),
+			'show_fname' => filter_var( $attributes['show_fname'], FILTER_VALIDATE_BOOLEAN ),
+			'show_lname' => filter_var( $attributes['show_lname'], FILTER_VALIDATE_BOOLEAN ),
+			'show_email' => filter_var( $attributes['show_email'], FILTER_VALIDATE_BOOLEAN ),
+			'show_date'  => filter_var( $attributes['show_date'], FILTER_VALIDATE_BOOLEAN ),
+		);
 
 		\ob_start();
 
